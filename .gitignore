@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/EntityZeroTestGame/Content/MonoGameContentCrawler.exe
+/EntityZeroTestGame/Content/MonoGameContentCrawler.exe.config
+/EntityZeroTestGame/Content/MonoGameContentCrawler.config
