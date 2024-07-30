@@ -1,0 +1,20 @@
+﻿So like a came accross this pinned message in the monogame discord where they explained Entity systems like this.
+
+E: Entity classes with subclasses. Loop through a List<Entity> and call Update/Draw on each
+C: (Unity like) Component based. Sealed Entity/GameObject class with a list of Components. 
+Loop through a List<Entity> then loop through each Entity's List<Component> and call Update/Draw on each
+
+EC: (Unreal like) Entity classes with the ability to subclass along with a list of Components per Entity
+ (E + C from above). Loop through a List<Entity> then loop through each Entity's List<Component> and call Update/Draw on each
+
+ECS: AKA pure ECS. Entity is reduced to an integer, Components are plain old structs stored in arrays.
+ Systems are optional and merely functions that iterate and optionally modify Components
+
+What I chose to do was the EC approach so We have an Entity class with subclasses e.g Player.cs
+and like each individual entity will have it's on .cs file sorta like a unity prefab. 
+
+I've already made 2 components PhysicsObject.cs ,which is like a rigidbody and CollisionBox.cs which is like a collision
+box(smart name, i know   ). Later on I'll do hitboxes and hurtboxes.
+
+
+We can still use systems and have them modify components but that can be a like an optimization thing.

@@ -12,11 +12,28 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="Content\Ogmo JSON Files\**" />
+    <EmbeddedResource Remove="Content\Ogmo JSON Files\**" />
+    <None Remove="Content\Ogmo JSON Files\**" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="MonoGame.Framework.WindowsDX" Version="3.8.1.303" />
     <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.1.303" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EntityZeroEngine\EntityZeroEngine.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Decals\Stage_0\" />
+    <Folder Include="Assets\Aseprite Files" /> 
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(ProjectDir)Assets\Aseprite Files\**" CopyToOutputDirectory="PreserveNewest" LinkBase="config\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Stage 0.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Target Name="RestoreDotnetTools" BeforeTargets="Restore">
     <Message Text="Restoring dotnet tools" Importance="High" />

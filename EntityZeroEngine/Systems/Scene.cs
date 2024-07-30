@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using EntityZeroEngine.EC;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,23 +10,37 @@ using Microsoft.Xna.Framework.Content;
 
 namespace EntityZeroEngine.Systems
 {
-	public interface IScene
+
+	public class Scene
 	{
-		//public List<Entity> Entities;
 
+		private List<Entity> entities;
 
+		public List<Entity> Entities
+		{
+			get { return entities; }
+			set { entities = value; }
+		}
 
-
-		//Entities = new List<Entity>();
+		//
 		//for (int i = 0; i < ogmoFile.entityLayers[0].entities.Count; i++)
 		//{
 		//	Entity current = new Entity(ogmoFile.entityLayers[0].entities[i]);
 		//	Entities.Add(current);
 		//}
 
-		public void Load();
-		public void Update(GameTime gameTime);
-		public void Draw(SpriteBatch spriteBatch);
+		public virtual void Load()
+	    {
+
+	    }
+		public virtual void Update(GameTime gameTime)
+		{
+
+		}
+		public virtual void Draw(SpriteBatch spriteBatch)
+		{
+
+		}
 
 
 	}

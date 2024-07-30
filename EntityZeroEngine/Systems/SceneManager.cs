@@ -10,24 +10,24 @@ namespace EntityZeroEngine.Systems
 	{
 
 
-		public Stack<IScene> SceneStack;
+		public Stack<Scene> SceneStack;
 
 		public SceneManager() {
 			SceneStack = new();
 		}
 
 
-		public void AddScene(IScene scene)
+		public void AddScene(Scene scene)
 		{
 			scene.Load();
 			SceneStack.Push(scene);
 		}
 
-		public void RemoveScene(IScene scene)
+		public void RemoveScene(Scene scene)
 		{
 			SceneStack.Pop();
 		}
-		public IScene GetCurrentScene()
+		public Scene GetCurrentScene()
 		{
 			return SceneStack.Peek();
 		}
