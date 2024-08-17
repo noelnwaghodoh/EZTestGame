@@ -11,6 +11,7 @@ namespace EntityZeroEngine
 	{
 		public static SpriteBatch SpriteBatch;
 		public static GraphicsDevice Graphics;
-		
+
+		public static int FrameCount;
 	}
 }

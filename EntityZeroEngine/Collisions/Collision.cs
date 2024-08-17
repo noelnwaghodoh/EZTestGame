@@ -23,7 +23,7 @@ namespace EntityZeroEngine.Collisions
 		
 
 
-		public Vector2 IntersectionDepth(Rectangle a, Rectangle b)
+		public static  Vector2 IntersectionDepth(Rectangle a, Rectangle b)
 		{
 			// Calculate half sizes.
 			var thisHalfWidth = a.Width / 2.0f;
@@ -53,5 +53,10 @@ namespace EntityZeroEngine.Collisions
 		}
 	}
 
-	
+	public class CollisionEventArgs : EventArgs
+	{
+		Rectangle box { get; set; }
+
+
+	}
 }

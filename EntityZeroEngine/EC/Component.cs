@@ -9,7 +9,7 @@ namespace EntityZeroEngine.EC
 {
 	public class Component
 	{
-		public Entity E { get; set; }
+		public Entity E { get; set; } // This stores that owns this component
 
 		public virtual void Initialize(Entity E)
 		{

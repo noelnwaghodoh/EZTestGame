@@ -33,11 +33,7 @@ namespace EntityZeroEngine.Components
 			
 			//	Debug.Print("Updating Data");
 		}
-		public void Accelerate(Point acceleration)
-		{
-			velocity = new Vector2(velocity.X + acceleration.X, velocity.Y + acceleration.Y); ;
-		}
-
+		
 
 	}
 }

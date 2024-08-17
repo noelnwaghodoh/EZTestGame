@@ -31,6 +31,9 @@
     <None Include="$(ProjectDir)Assets\Aseprite Files\**" CopyToOutputDirectory="PreserveNewest" LinkBase="config\" />
   </ItemGroup>
   <ItemGroup>
+    <None Update="Assets\Ogmo Levels\Stage 0.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Stage 0.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

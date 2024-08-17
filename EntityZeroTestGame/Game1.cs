@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
+using System.Diagnostics;
 
 
 namespace EntityZeroTestGame
@@ -26,6 +27,7 @@ namespace EntityZeroTestGame
 		private Rectangle _renderDestination;
 
 
+		private int _framecount =0;
 
 
 		public Game1()
@@ -35,13 +37,16 @@ namespace EntityZeroTestGame
 
 			_graphics = new GraphicsDeviceManager(this);
 			
+			
 			sceneManager = new SceneManager();
 			Content.RootDirectory = "Content";
 
-
+			Globals.FrameCount = 0;
 
 			_graphics.PreferredBackBufferWidth = 960; _graphics.PreferredBackBufferHeight = 540;
 
+
+			
 			IsMouseVisible = true;
 		}
 
@@ -50,7 +55,9 @@ namespace EntityZeroTestGame
 			// TODO: Add your initialization logic here
 
 			base.Initialize();
+			
 			CalculateRenderDestination();
+			EntityZeroEngine.Input.KeyboardInput.Initialize();
 		}
 
 		protected override void LoadContent()
@@ -93,7 +100,14 @@ namespace EntityZeroTestGame
 
 			// TODO: Add your update logic here
 
+			EntityZeroEngine.Input.KeyboardInput.Update();
+			EntityZeroEngine.Input.InputReader.Update();
+
 			sceneManager.GetCurrentScene().Update(gameTime);
+			Globals.FrameCount++;
+		//	Debug.Print(Globals.FrameCount.ToString());
+
+
 
 			base.Update(gameTime);
 		}

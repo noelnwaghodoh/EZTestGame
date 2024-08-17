@@ -22,8 +22,10 @@ namespace EntityZeroTestGame.Entities
     public class Player:Entity
 	{
 
-		Collision Collision=  new();
 
+
+		//IState currentState = new IdleState();
+		StateMachine stateMachine = new StateMachine();
 		PhysicsObject physicsObject = new PhysicsObject();
 		CollisionBox collisionBox = new CollisionBox();
 
@@ -50,11 +52,11 @@ namespace EntityZeroTestGame.Entities
             AddComponent(physicsObject);
 			AddComponent(collisionBox);
 			physicsObject.velocity = new Vector2(0, 1f);
-			physicsObject.acceleration = new Vector2(0, 0.1f);
-			
+			physicsObject.acceleration = new Vector2(0, 0.06f);
 
 
 
+			stateMachine.currentState = new IdleState();
 
 
 //		Debug.Print("The player's velocity is  "+ physicsObject.velocity.ToString());
@@ -102,7 +104,7 @@ namespace EntityZeroTestGame.Entities
 		public override void Draw(SpriteBatch spriteBatch)
 		{
 			playerSprite.Draw(spriteBatch, new Vector2(position.X,position.Y));
-			spriteBatch.Draw(texture, collisionBox.collisionBox, new Color(0, 0, 0, 130));
+			//spriteBatch.Draw(texture, collisionBox.collisionBox, new Color(0, 0, 0, 130));
 
 			//base.Draw(spriteBatch);
 		}
@@ -114,6 +116,12 @@ namespace EntityZeroTestGame.Entities
 		}
 
 		
+		enum CurrentState
+		{
+			Idle, 
+			Walking
+		}
+
 		
 	}
 }

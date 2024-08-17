@@ -1,4 +1,5 @@
-﻿using EntityZeroEngine.EC;
+﻿using EntityZeroEngine.Collisions;
+using EntityZeroEngine.EC;
 using EntityZeroEngine.Tiles;
 using Microsoft.Xna.Framework;
 using System;
@@ -14,10 +15,13 @@ namespace EntityZeroEngine.Components
 	{
 
 
+		
+
+
 		public Rectangle collisionBox;
 
-
-
+		public event EventHandler<CollisionEventArgs> onCollision;
+		
 		public override void Initialize(Entity E)
 		{
 			Tilemap collisionGrid = new Tilemap();
@@ -34,7 +38,10 @@ namespace EntityZeroEngine.Components
 		public override void Update(GameTime gametime)
 		{
 			collisionBox.X = E.position.ToPoint().X - E.origin.X;
-			collisionBox.Y = E.position.ToPoint().Y - E.origin.Y;
+
+			collisionBox.Y = E.position.ToPoint().Y - E.origin.Y; 
+
+
 
 		}
 

@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Security.Cryptography.X509Certificates;
+using EntityZeroEngine.Ogmo;
 
 namespace EntityZeroTestGame.Assets
 {
@@ -15,8 +16,11 @@ namespace EntityZeroTestGame.Assets
 		
 
 		public static Dictionary<String, AsepriteFile> AsepriteFiles;
+		public static Dictionary<String, OgmoFile> OgmoFiles;
 
 		public static String AsepriteFileDirectory = "Assets/Aseprite Files\\";
+		public static String OgmoFileDirectory = "Assets/Ogmo Levels\\";
+	
 
 		public static void LoadAsepriteFiles()
 		{
@@ -30,6 +34,20 @@ namespace EntityZeroTestGame.Assets
 			{
 				AsepriteFiles.Add(AsepriteFile, AsepriteFileLoader.FromFile(AsepriteFile));
 			}
+		}
+
+		public static void LoadOgmoFiles()
+		{
+
+
+			OgmoFiles = new Dictionary<string, OgmoFile>();
+			string[] filenames = Directory.GetFiles("Assets/Ogmo Files");
+
+			foreach(String OgmoFile in filenames)
+			{
+				//OgmoFiles.Add()
+			}
+			
 		}
 
 
