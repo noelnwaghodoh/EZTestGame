@@ -12,7 +12,7 @@ namespace EntityZeroEngine.Input
 {
 	public static class InputReader
 	{
-	   static int[] kBDirBuffer = new int[4];
+	   public static int[] kBDirBuffer = new int[4];
 	   public static Directions currentDirection;
 
 	   public static int[] buffer = new int[60];
@@ -57,7 +57,7 @@ namespace EntityZeroEngine.Input
 			}
 			if (KeyboardInput.isKeyUp(Keys.A))
 			{
-				Debug.Print("We Released A");
+				//Debug.Print("We Released A");
 				kBDirBuffer[1] = 0;
 
 			}
@@ -82,7 +82,7 @@ namespace EntityZeroEngine.Input
 			}
 			if (KeyboardInput.IsKeyPressed(Keys.A))
 			{
-				Debug.Print("We pressed A");
+				//Debug.Print("We pressed A");
 
 			}
 			if (KeyboardInput.IsKeyPressed(Keys.S))

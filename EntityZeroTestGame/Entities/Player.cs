@@ -25,7 +25,7 @@ namespace EntityZeroTestGame.Entities
 
 
 		//IState currentState = new IdleState();
-		StateMachine stateMachine = new StateMachine();
+	
 		PhysicsObject physicsObject = new PhysicsObject();
 		CollisionBox collisionBox = new CollisionBox();
 
@@ -49,56 +49,39 @@ namespace EntityZeroTestGame.Entities
 			texture.SetData<Color>(new Color[] { Color.Lavender });
 			
 		   base.Create(scene);
-            AddComponent(physicsObject);
 			AddComponent(collisionBox);
+			AddComponent(physicsObject);
 			physicsObject.velocity = new Vector2(0, 1f);
 			physicsObject.acceleration = new Vector2(0, 0.06f);
 
 
 
-			stateMachine.currentState = new IdleState();
+			
 
 
-//		Debug.Print("The player's velocity is  "+ physicsObject.velocity.ToString());
-//	Debug.Print("The player's origin is " + origin.ToString());
-//Debug.Print("The player's position is " + position.ToString());
+
 
 		}
 
-		public void SetColliderList(List<Rectangle> rectangles)
-		{
-			colliders = rectangles;
-		}
+		
+	
 
-		bool grounded = false;
+		bool grounded = false; // A
+
+
+
 		public override void Update(GameTime gametime)
 		{
-				//physicsObject.Accelerate(physicsObject.acceleration);
-		//	Debug.Print(physicsObject.velocity.ToString());
+			
 			base.Update(gametime);
 
-			//grounded = false;
-		//	physicsObject.velocity = new Vector2(0, 1);
-		   //physicsObject.acceleration = new Point(0, 3);
-			foreach (var collider in colliders)
-			{
-				if (collisionBox.collisionBox.Intersects(collider))
-				{
-					physicsObject.acceleration = new Vector2(0,0);
+			//if (EntityZeroEngine.Input.InputReader.CheckSequence(new int[4] { 6,5,6,5},10))
+			//{
+				//Debug.Print("Dashing");
+			//}
 
-					
-
-					physicsObject.velocity = new Vector2(0, 0);
-					float ID = Collision.IntersectionDepth(collisionBox.collisionBox, collider).Y;
-
-					
-					Debug.Print("The collision depth y is " + ID);
-
-				   collisionBox.collisionBox.Y += (int)ID;
-					position.Y += ID;
-
-				}
-			}
+			
+			
 		}
 
 		public override void Draw(SpriteBatch spriteBatch)

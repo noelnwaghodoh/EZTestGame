@@ -21,7 +21,7 @@ using EntityZeroEngine.Tiles;
 using EntityZeroEngine.EC;
 using System.Runtime.CompilerServices;
 using EntityZeroTestGame.Entities;
-
+using EntityZeroEngine.Components;
 
 namespace EntityZeroTestGame.Scenes
 {
@@ -47,14 +47,16 @@ namespace EntityZeroTestGame.Scenes
 
 		Player player;
 
-		List<Rectangle> colliders = new List<Rectangle>();	
+		Mage mage;
+
+		 List<Rectangle> colliders = new List<Rectangle>();	
 
 
 		public Scene_Stage_0(ContentManager contentManager, GraphicsDevice gDevice)
 		{
 			this.contentManager = contentManager;
 			this.gDevice = gDevice;
-
+			
 		}
 
 
@@ -99,8 +101,10 @@ namespace EntityZeroTestGame.Scenes
 
 			player = new Player(stage0.GetEntityLayerByName("entities").entities.Find(oe => oe.name == "Player"));
 			player.Create(this);
-			
 
+
+			mage = new Mage();
+			mage.Create(this);
 
 
 			
@@ -115,7 +119,24 @@ namespace EntityZeroTestGame.Scenes
 				}
 			}
 
-			player.SetColliderList(colliders);
+			foreach(var e in Entities)
+			{
+				CollisionBox box = e.GetComponent<CollisionBox>();
+			//	if( box != null )
+				//colliders.Add(box.collisionBox);
+			}
+
+			//player.SetColliderList(colliders);
+			foreach (var e in Entities)
+			{
+				CollisionBox box = e.GetComponent<CollisionBox>();
+				if (box != null)
+				box.colliders = colliders;
+
+
+			}
+
+
 
 
 			Debug.Print("done");
@@ -140,6 +161,7 @@ namespace EntityZeroTestGame.Scenes
 		     backgroundSprite.Draw(spriteBatch,new Vector2(0,0));
 				visualGrid.DrawSprites(stage0.GetTileLayerByName("Tile Layer").data2d,spriteBatch);
 			player.Draw(spriteBatch);
+			mage.Draw(spriteBatch);
 		}
 
 

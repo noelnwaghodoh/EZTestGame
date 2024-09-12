@@ -1,4 +1,5 @@
-﻿using EntityZeroEngine.EC;
+﻿using EntityZeroEngine.Components;
+using EntityZeroEngine.EC;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -11,9 +12,14 @@ namespace EntityZeroEngine.Systems
     public interface IState
 	{
 
+		public StateMachine SM { get; set; }
+		public void Initailize(StateMachine SM)
+		{
+				 this.SM = SM;
+		}
 		public  void Update(GameTime gameTime)
 		{
-
+		  
 		}
 		
 	}

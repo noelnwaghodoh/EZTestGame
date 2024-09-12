@@ -59,6 +59,26 @@ namespace EntityZeroEngine.EC
 		public Entity() { 
 		}
 
+		public T GetComponent<T>() where T : Component
+		{
+			if(components != null)
+			{
+			
+				foreach (Component C1 in components)
+				{
+					Debug.Print(C1.GetType().ToString());
+				    if(C1.GetType() == typeof(T) )
+					{
+						
+						return (T)C1;
+					}
+				}
+			}
+			
+			return null;
+		
+		}
+
 		public Component AddComponent(Component C)
 		{
 			components.Add(C);

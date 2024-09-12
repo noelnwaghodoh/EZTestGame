@@ -21,15 +21,17 @@ namespace EntityZeroEngine.Components
 		public Rectangle collisionBox;
 
 		public event EventHandler<CollisionEventArgs> onCollision;
-		
+
+		public List<Rectangle> colliders;
+
 		public override void Initialize(Entity E)
 		{
-			Tilemap collisionGrid = new Tilemap();
+			//Tilemap collisionGrid = new Tilemap();
 
 			base.Initialize(E);
 			//object tilesGrid = E.S.GetType().GetField("colliderGrid").GetValue(collisionGrid);
 
-
+		
 			//Debug.Print(tilesGrid.ToString());
 
 
